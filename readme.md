@@ -4,7 +4,7 @@
 =====================================================================================================================
 <div align="center">
 <a href="http://en.wikipedia.org/wiki/Ten-pin_bowling">
-<img src="http://smallanimalfun.com/menagerie/photos/rats/agility/NinevehBowling.png" width="500"></a>
+<img src="http://smallanimalfun.com/menagerie/photos/rats/agility/NinevehBowling.png" width="500"></a><br>
 click image for rules
 </div>
 
