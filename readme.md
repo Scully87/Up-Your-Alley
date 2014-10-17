@@ -1,1 +1,1 @@
-<img src="http://smallanimalfun.com/menagerie/photos/rats/agility/NinevehBowling.png" height="50" width="100">
+<img src="http://smallanimalfun.com/menagerie/photos/rats/agility/NinevehBowling.png" width="500">
