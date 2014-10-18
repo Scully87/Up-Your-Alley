@@ -1,4 +1,8 @@
 function Game() {
-	this.rolls = []
+	this.rolls = [];
+	this.currentRoll = 0;
 };
 
+Game.prototype.roll = function(pins) {
+	this.rolls.push(pins);
+};
