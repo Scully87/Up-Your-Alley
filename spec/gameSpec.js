@@ -32,9 +32,18 @@ describe('UpYourAlley', function() {
     it('record a strike', function() {
       game.roll(10)
       // adds 10 to the score without using single pin count,
-      // 18 rolls remain after 1 strike
       rollCount.call(game, 0, 18)
+      // 18 rolls remain after 1 strike
       expect(game.score()).toEqual(10);
+    });
+
+    it("record a strike with a bonus of the next two rolls' total", function() {
+      game.roll(10)
+      rollCount.call(game, 7, 2);
+      //adds 10 to the score as a strike,
+      //the next roll two rolls are 7 each.
+      //this strike will now be worth 24
+      expect(game.score()).toEqual(24);
     });
 
   });
