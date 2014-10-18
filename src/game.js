@@ -1,8 +1,13 @@
-function Game() {
+function UpYourAlley() {
 	this.rolls = [];
 	this.currentRoll = 0;
 };
 
-Game.prototype.roll = function(pins) {
-	this.rolls.push(pins);
+UpYourAlley.prototype.roll = function(pins) {
+	this.rolls[this.currentRoll++] = pins;
 };
+
+UpYourAlley.prototype.score = function() {
+	var score = 0;
+};
+
