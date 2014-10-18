@@ -4,11 +4,9 @@ function UpYourAlley() {
 };
 
 UpYourAlley.prototype.roll = function(pins) {
-	this.rolls.currentRoll = pins;
+	this.currentRoll += pins;
 };
 
 UpYourAlley.prototype.score = function() {
-	var score = 0;
-	return score;
+	return this.currentRoll;
 };
-

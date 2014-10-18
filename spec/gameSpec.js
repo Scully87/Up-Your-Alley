@@ -1,19 +1,25 @@
 describe('UpYourAlley', function() {
-	var game;
 
 	beforeEach(function() {
 		game = new UpYourAlley();
 	});
 
-	it('should allow rolls to be made', function() {
-		expect(game.rolls).toEqual([])
-	});
-
-  it("handle gutter game", function() {
-    for (i = 0; i < 20; i++) {
-      game.roll(0);
+	rollCount = function (pins, n) {
+		//n = number of rolls
+    for (var i = 0; i < n; i++) {
+      this.roll(pins);
     }
+  };
+   
+  it('scores a gutter game', function () {
+    rollCount.call(game, 0, 20);
+    //The call() method calls a function with a this value and arguments.
     expect(game.score()).toEqual(0);
   });
-
+  
+  it('scores a full game of ones', function() {
+    rollCount.call(game, 1, 20);
+    expect(game.score()).toEqual(20)
+  });
+ 
 });
