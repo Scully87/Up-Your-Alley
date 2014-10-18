@@ -10,21 +10,24 @@ describe('UpYourAlley', function() {
       this.roll(pins);
     }
   };
+
+  it('allows rolls to be made', function() {
+ 		expect(game.rolls).toEqual([])
+ 	});
+
+  describe('Scorecard can', function() { 
    
-  it('scores a gutter game', function() {
-    rollCount.call(game, 0, 20);
-    //The call() method calls a function with a this value and arguments.
-    expect(game.score()).toEqual(0);
-  });
-  
-  it('scores a full game of ones', function() {
-    rollCount.call(game, 1, 20);
-    expect(game.score()).toEqual(20)
+    it('record a gutter game', function() {
+      rollCount.call(game, 0, 20);
+      //The call() method calls a function with a this value and arguments.
+      expect(game.score()).toEqual(0);
+    });
+    
+    it('record a game of one pin each roll', function() {
+      rollCount.call(game, 1, 20);
+      expect(game.score()).toEqual(20)
+    });
+
   });
 
-  it('scores a perfect game', function() {
-  	rollCount.call(game, 10, 20);
-  	expect(game.score()).toEqual(300)
-  });
- 
 });
