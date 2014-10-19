@@ -36,7 +36,7 @@ describe('UpYourAlley', function() {
     it('A strike', function() {
       Strike.call(game)
       // adds 10 to the score without using single pin count,
-      rollCount.call(game, 0, 18)
+      rollCount.call(game, 0, 0)
       // 18 rolls remain after 1 strike
       expect(game.score()).toEqual(10);
     });
