@@ -29,8 +29,12 @@ describe('UpYourAlley', function() {
       expect(game.score()).toEqual(20);
     });
 
+     Strike = function() {
+      this.roll(10)
+    };
+
     it('A strike', function() {
-      game.roll(10)
+      Strike.call(game)
       // adds 10 to the score without using single pin count,
       rollCount.call(game, 0, 18)
       // 18 rolls remain after 1 strike
@@ -38,7 +42,7 @@ describe('UpYourAlley', function() {
     });
 
     it("A strike with a bonus of the next two rolls' total", function() {
-      game.roll(10)
+      Strike.call(game)
       rollCount.call(game, 7, 2);
       //adds 10 to the score as a strike,
       //the next roll two rolls are 7 each.
@@ -46,15 +50,18 @@ describe('UpYourAlley', function() {
       expect(game.score()).toEqual(24);
     });
 
+    Spare = function() {
+      game.roll(5)
+      game.roll(5)
+    };
+  
     it('A spare', function() {
-      game.roll(5)
-      game.roll(5)
+      Spare.call(game)
       expect(game.score()).toEqual(10);
     });
 
     it('A spare with a bonus of the next roll', function() {
-      game.roll(5)
-      game.roll(5)
+      Spare.call(game)
       rollCount.call(game, 4, 1)
       expect(game.score()).toEqual(14);
     });
