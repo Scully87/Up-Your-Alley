@@ -4,9 +4,12 @@ function UpYourAlley() {
 };
 
 UpYourAlley.prototype.roll = function(pins) {
-	this.currentRoll += pins;
+	this.rolls[this.currentRoll++] = pins;
 };
 
 UpYourAlley.prototype.score = function() {
-	return this.currentRoll;
+	return this.rolls.reduce(function (a, b) {
+	//reduce() method applies a function against an accumulator 
+	//and each value of the array has to reduce it to a single value
+	return a + b; });
 };

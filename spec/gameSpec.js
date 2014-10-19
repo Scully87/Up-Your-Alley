@@ -11,25 +11,25 @@ describe('UpYourAlley', function() {
     }
   };
 
-  it('allows rolls to be made', function() {
+  it('Allows rolls to be made', function() {
  		expect(game.rolls).toEqual([])
  	});
 
-  describe('Scorecard can', function() { 
+  describe('Scorecard can record', function() { 
    
-    it('record a gutter game', function() {
+    it('A gutter game', function() {
       rollCount.call(game, 0, 20);
       //The call() method calls a function with,
       // a '.this' value and arguments (pins, number of rolls).
       expect(game.score()).toEqual(0);
     });
     
-    it('record a game of one pin each roll', function() {
+    it('A game of one pin each roll', function() {
       rollCount.call(game, 1, 20);
       expect(game.score()).toEqual(20);
     });
 
-    it('record a strike', function() {
+    it('A strike', function() {
       game.roll(10)
       // adds 10 to the score without using single pin count,
       rollCount.call(game, 0, 18)
@@ -37,13 +37,26 @@ describe('UpYourAlley', function() {
       expect(game.score()).toEqual(10);
     });
 
-    it("record a strike with a bonus of the next two rolls' total", function() {
+    it("A strike with a bonus of the next two rolls' total", function() {
       game.roll(10)
       rollCount.call(game, 7, 2);
       //adds 10 to the score as a strike,
       //the next roll two rolls are 7 each.
       //this strike will now be worth 24
       expect(game.score()).toEqual(24);
+    });
+
+    it('A spare', function() {
+      game.roll(5)
+      game.roll(5)
+      expect(game.score()).toEqual(10);
+    });
+
+    it('A spare with a bonus of the next roll', function() {
+      game.roll(5)
+      game.roll(5)
+      rollCount.call(game, 4, 1)
+      expect(game.score()).toEqual(14);
     });
 
   });
